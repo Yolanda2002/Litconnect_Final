@@ -1,0 +1,603 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>FYP_Litconnect_Report</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='litconnect-intelligent-book-sharing-and-communicating-system-that-includes-ai-and-grouping'><span>Litconnect: Intelligent Book Sharing and Communicating System that includes AI and Grouping</span></h1><p><strong><span>Author</span></strong><span>: Jia Yang</span></p><p><strong><span>Student Number</span></strong><span>: 20104736</span></p><p><strong><span>Instructor</span></strong><span>: Jacqui Woods O&#39; Brien</span></p><hr /><p>&nbsp;</p><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n4"><a class="md-toc-inner" href="#litconnect-intelligent-book-sharing-and-communicating-system-that-includes-ai-and-grouping">Litconnect: Intelligent Book Sharing and Communicating System that includes AI and Grouping</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1283"><a class="md-toc-inner" href="#1-abstract">1. Abstract</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n9"><a class="md-toc-inner" href="#2-declaration">2. Declaration</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n12"><a class="md-toc-inner" href="#3-introduction">3. Introduction</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n13"><a class="md-toc-inner" href="#31-functions">3.1 Functions</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n14"><a class="md-toc-inner" href="#311-log-in-and-register">3.1.1 Log in and Register</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n18"><a class="md-toc-inner" href="#311-reviews-pages">3.1.1 Reviews Pages</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n24"><a class="md-toc-inner" href="#312-ai-helper">3.1.2 AI Helper</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n28"><a class="md-toc-inner" href="#313-chat-interface">3.1.3 Chat interface</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n39"><a class="md-toc-inner" href="#314-dashboard">3.1.4 Dashboard</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n44"><a class="md-toc-inner" href="#314-personal-homepage">3.1.4 Personal homepage </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n59"><a class="md-toc-inner" href="#32-features">3.2 Features</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n169"><a class="md-toc-inner" href="#321-integrated-ai-helper">3.2.1 Integrated AI Helper</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n171"><a class="md-toc-inner" href="#322-dynamic-chat-interface-options">3.2.2 Dynamic Chat Interface Options</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#323-comprehensive-dashboard">3.2.3 Comprehensive Dashboard</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n175"><a class="md-toc-inner" href="#324-customizable-personal-homepage">3.2.4 Customizable Personal Homepage</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n177"><a class="md-toc-inner" href="#325-review-addition-with-media-uploads">3.2.5 Review Addition with Media Uploads</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n60"><a class="md-toc-inner" href="#33-user-experience">3.3 User Experience</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n61"><a class="md-toc-inner" href="#331-audience-defination">3.3.1 Audience Defination</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n63"><a class="md-toc-inner" href="#332-senarios------typical-users">3.3.2 Senarios——Typical Users</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n213"><a class="md-toc-inner" href="#4-risk-management">4. Risk Management</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n223"><a class="md-toc-inner" href="#41-integrity">4.1 Integrity</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n236"><a class="md-toc-inner" href="#42-accessibility">4.2 Accessibility</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n239"><a class="md-toc-inner" href="#43-security">4.3 Security</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n2372"><a class="md-toc-inner" href="#44-illness">4.4 Illness</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n246"><a class="md-toc-inner" href="#45-no-backups">4.5 No Backups</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n293"><a class="md-toc-inner" href="#5-tools-and-technologies">5. Tools and Technologies</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n294"><a class="md-toc-inner" href="#51-hardware">5.1 Hardware</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n322"><a class="md-toc-inner" href="#52-software">5.2 Software</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n400"><a class="md-toc-inner" href="#6-maintenance">6. Maintenance</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n75"><a class="md-toc-inner" href="#7--project-analysis-and-specification">7.  Project Analysis and Specification</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n419"><a class="md-toc-inner" href="#71-project-size">7.1 Project Size</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n462"><a class="md-toc-inner" href="#72--feasibility-study">7.2  Feasibility Study</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n467"><a class="md-toc-inner" href="#721-technological-t">7.2.1 Technological (T)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n481"><a class="md-toc-inner" href="#722-economic-e">7.2.2 Economic (E)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n493"><a class="md-toc-inner" href="#723-legal-l">7.2.3 Legal (L)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n503"><a class="md-toc-inner" href="#724-operational-o">7.2.4 Operational (O)</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n515"><a class="md-toc-inner" href="#725-schedule-s">7.2.5 Schedule (S)</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n85"><a class="md-toc-inner" href="#8-specification-of-data-structures">8. Specification of Data Structures </a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n741"><a class="md-toc-inner" href="#81-uml-for-system">8.1 UML for system</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n771"><a class="md-toc-inner" href="#811-use-case-diagram">8.1.1 Use Case Diagram</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n743"><a class="md-toc-inner" href="#812-class-diagram">8.1.2 Class Diagram</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n745"><a class="md-toc-inner" href="#813-sequence-diagram">8.1.3 Sequence Diagram</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n766"><a class="md-toc-inner" href="#82-database">8.2 Database</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n767"><a class="md-toc-inner" href="#821-er-diagram">8.2.1 ER Diagram</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n769"><a class="md-toc-inner" href="#9-methodology">9. Methodology</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n774"><a class="md-toc-inner" href="#91-the-problem-from-a-process-viewpoint">9.1 The Problem from a Process Viewpoint</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n777"><a class="md-toc-inner" href="#92-assessment-of-chosen-methodologies">9.2 Assessment of Chosen Methodologies</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n794"><a class="md-toc-inner" href="#93-process-outline">9.3 Process Outline</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n811"><a class="md-toc-inner" href="#94-sprint-breakdown-and-timeline">9.4 Sprint Breakdown and Timeline</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n88"><a class="md-toc-inner" href="#10-user-interface-and-testing">10. User Interface and Testing</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n960"><a class="md-toc-inner" href="#101-login-and-register">10.1 Login and Register</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n966"><a class="md-toc-inner" href="#102-reviews-page">10.2 Reviews Page</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1032"><a class="md-toc-inner" href="#103-ai-helper">10.3 AI Helper</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1051"><a class="md-toc-inner" href="#104-chat-page">10.4 Chat Page</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1006"><a class="md-toc-inner" href="#105-personal-page">10.5 Personal page</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1010"><a class="md-toc-inner" href="#106-dashboard">10.6 Dashboard</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1014"><a class="md-toc-inner" href="#107-administrator-specialty">10.7 Administrator Specialty</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n971"><a class="md-toc-inner" href="#11-management-of-the-process">11. Management of the Process</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n957"><a class="md-toc-inner" href="#12-project-evaluation">12. Project Evaluation</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1151"><a class="md-toc-inner" href="#121-project-evaluation">12.1 Project Evaluation</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1162"><a class="md-toc-inner" href="#122-immediate-outcomes">12.2 Immediate Outcomes</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n1168"><a class="md-toc-inner" href="#123-long-term-outcomes">12.3 Long-Term Outcomes</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n95"><a class="md-toc-inner" href="#13-testing">13. Testing</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n99"><a class="md-toc-inner" href="#14-conclusion">14. Conclusion</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n100"><a class="md-toc-inner" href="#15-references">15. References</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n102"><a class="md-toc-inner" href="#16-appendices">16. Appendices</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n103"><a class="md-toc-inner" href="#161-resources">16.1 Resources</a></span></p></div><hr /><p>&nbsp;</p><h2 id='1-abstract'><span>1. Abstract</span></h2><p><span>As an avid reader, I often struggle with not having anyone to share my feelings about the books I read. Existing reading platforms are filled with advertisements and useless features, so I wanted to customize a web platform that would enhance the reading experience by connecting readers through personalized book recommendations and interactive community features, allowing authors to personalize and upload selections and chapters of their books, match them with more appropriate book reviews, find book lovers of similar interests, and interact with them in real time. The platform also features AI communication that can push books they are interested in, while everyone can customize their own personal interface. In the dashboard, users can also see the Realize to meet the needs of users to the greatest extent possible.</span></p><p><span>With this in mind, I have designed a book review system with the above features. This document is my elaboration of the idea and the planning arrangement of the project.</span></p><p>&nbsp;</p><h2 id='2-declaration'><span>2. Declaration</span></h2><p><span>I solemnly declare that the final year project “Web application based on Spring-Boot for tourists who want to travel” I submitted was completed independently under the guidance of my supervisor. The research results, data and opinions involved in the article were obtained by myself through searching for information and research. Except for the content cited in the article, this article does not contain works or results that have been published or written by any other individual or collective. Other individuals and groups who contributed to the research for this article are clearly identified in the text in an appropriate manner.</span>
+<span>During the research and writing process of this graduation project, I have strictly abided by the academic integrity regulations stipulated by the school to ensure the authenticity and validity of all data, charts, quoted theories and other information. I am responsible for the research content, authenticity and completeness of the data in this article.</span></p><p>&nbsp;</p><h2 id='3-introduction'><span>3. Introduction</span></h2><h3 id='31-functions'><span>3.1 Functions</span></h3><h4 id='311-log-in-and-register'><span>3.1.1 Log in and Register</span></h4><p><span>After entering the website, the default interface is login, if it is the first time to enter the website, you can click on the bottom to register interface. Here you can enter the user name and password, when you enter the used username will report an error, the password is less than 8 digits will also report an error.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422135209666.png" alt="image-20240422135209666"  /></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422135156676.png" referrerpolicy="no-referrer" alt="image-20240422135156676"></p><h4 id='311-reviews-pages'><span>3.1.1 Reviews Pages</span></h4><p><span>At the bottom of the interface there are buttons for a number of functions, the most critical function being the Reviews screen in the center. This interface, when clicked, will display thumbnails of all the Reviews on the interface, and after clicking into the thumbnails, there are corresponding links to click on, which will take you to the details interface of each Review to view more information. At the top of the interface is a search bar that allows you to search for all Book Reviews with related content, keyword matching to the title. Below the search box, there is a tag selector. When you select the corresponding tag, it will filter out the thumbnail information of the specific reviews of the corresponding tag.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422124445561.png" referrerpolicy="no-referrer" alt="image-20240422124445561"></p><p><span>In the bottom right corner of the interface, there is a button to add reviews, clicking the button can automatically jump to the interface to add new book or movie reviews.The book review interface is a form that allows the user to fill in information about the book review he wants to share. The information includes the following fields: book title (required), tag (required), review title (required), and book review details(required). Users can decide whether they want to upload images to the website.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422124503754.png" referrerpolicy="no-referrer" alt="image-20240422124503754"></p><p>&nbsp;</p><h4 id='312-ai-helper'><span>3.1.2 AI Helper</span></h4><p><span>After clicking the second AI button below, you will be automatically redirected to the AI helper interface. In this interface, users can talk to the AI. The AI currently used is the chatgpt3.5 interface.[1] I looked for a third-party platform to purchase a usage credit.[2] This can be effectively managed during subsequent use.It can handle a variety of needs, including but not limited to: recommending books, recommending movie episodes, finding episodes for content, finding specific content for books, etc. Users can interact with the AI according to their own needs, so as to conveniently find all kinds of information, easy to edit book reviews, etc.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422125452151.png" referrerpolicy="no-referrer" alt="image-20240422125452151"></p><p>&nbsp;</p><h4 id='313-chat-interface'><span>3.1.3 Chat interface</span></h4><p><span>At the top of the interface, there are buttons to choose between public chat or group private chat, so users can switch back and forth between the two forms of communication according to their needs.</span></p><ul><li><p><strong><span>Public chat:</span></strong><span> In this interface, users can interact with all users in real time. Everyone&#39;s information can be displayed in the interface in real time, thus making it easier for everyone to chat. Users can select topics of interest to talk to the current online users and can view the history of messages.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422132315646.png" referrerpolicy="no-referrer" alt="image-20240422132315646"></p></li><li><p><strong><span>Group Chat:</span></strong><span> In addition, for users who like specific books or movies, group chat provides a space for discussion and exchange. Users can create chat rooms based on the content they are interested in, allowing for flexible communication with people who are also interested. Users have the flexibility to join existing chat groups through friend invitations, or create their own groups around common reading interests. After joining the community, users are able to speak freely about their areas of interest.</span></p></li></ul><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422132331528.png" referrerpolicy="no-referrer" alt="image-20240422132331528"></p><p>&nbsp;</p><p>&nbsp;</p><h3 id='314-dashboard'><span>3.1.4 Dashboard</span></h3><p><span>After clicking on the first button below, you can access the Dashboard, which shows the number of likes, comments, favorites and book reviews that all others have made about the user. Below that are some statistical charts that record all the types of responses from others (differentiated by different colors), and the specific content and number of displays. The lower horizontal coordinate is the month&#39;s response.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422133925800.png" referrerpolicy="no-referrer" alt="image-20240422133925800"></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422133942824.png" referrerpolicy="no-referrer" alt="image-20240422133942824"></p><p>&nbsp;</p><h4 id='314-personal-homepage'><span>3.1.4 Personal homepage </span></h4><p><span>The &quot;Me&quot; interface on the platform is divided into two main sections to enhance user convenience and control: avatar settings, personal collection display and logout button.</span></p><ul><li><p><span>Avatar Box: Click on the avatar box to change the avatar photo, which will be utilized in all chat messages.</span></p></li><li><p><span>My book review page: you can click on it to go to all the book reviews created by the user, and click on a specific book review to display the specific information.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422133453644.png" referrerpolicy="no-referrer" alt="image-20240422133453644"></p></li><li><p><span>My collection page：</span><em><span>Users can find all the contents of the likes in this interface.</span></em></p></li><li><p><em><span>My likes：</span></em><span>Users can find all the contents after clicking favorite here.</span></p></li><li><p><span>Log out button: click it to log out and realize account switching.</span></p></li></ul><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422133410620.png" referrerpolicy="no-referrer" alt="image-20240422133410620"></p><h3 id='32-features'><span>3.2 Features</span></h3><p><span>In designing the features for our book review platform, we have meticulously integrated various elements that set it apart from common book review websites in the market. Here’s an analysis of the distinctive features of our platform:</span></p><h4 id='321-integrated-ai-helper'><span>3.2.1 Integrated AI Helper</span></h4><p><span>Unlike many traditional book review websites, my platform incorporates an AI helper using the ChatGPT-3.5 interface. This AI assistant is capable of more than just basic interactions; it can recommend books and movies, find specific content within books, and assist in creating and editing book reviews. This tool significantly enhances user experience by providing personalized assistance on-demand, which is not typically found on other platforms.</span></p><h4 id='322-dynamic-chat-interface-options'><span>3.2.2 Dynamic Chat Interface Options</span></h4><p><span>My platform uniquely offers both public and group private chats, allowing users to engage in real-time conversations. This feature supports community building and provides a dynamic space for discussions around books and movies. Users can join public chats to engage with a broader audience or enter group chats focused on specific topics or interests. This flexibility in communication is a step beyond the static comment sections commonly found on other book review sites.</span></p><h4 id='323-comprehensive-dashboard'><span>3.2.3 Comprehensive Dashboard</span></h4><p><span>The Dashboard feature on my platform provides a robust analytics interface, showing users an aggregation of likes, comments, favorites, and reviews of their posts. It includes visual statistical charts that break down responses by color-coded categories over different months. This personalized feedback mechanism helps users track their engagement over time, which is generally not available on conventional book review sites.</span></p><h4 id='324-customizable-personal-homepage'><span>3.2.4 Customizable Personal Homepage</span></h4><p><span>The &quot;Me&quot; interface offers a highly personalized user experience where individuals can manage their avatar, access and edit their book reviews, and manage their collections and likes. This personal homepage goes beyond basic profile features, giving users a central place to manage their content and interactions effectively.</span></p><h4 id='325-review-addition-with-media-uploads'><span>3.2.5 Review Addition with Media Uploads</span></h4><p><span>My platform allows users to add reviews with an option to upload images. This feature enhances the review detail and engages other users visually, making the review content more appealing and informative. While some platforms allow image uploads, our seamless integration ensures that adding visual content is straightforward and enhances the overall review experience.</span></p><p><span>These unique features are designed to provide a comprehensive, engaging, and user-friendly environment for book lovers and movie aficionados alike, setting my platform apart from the standard functionalities of existing book review websites.</span></p><h3 id='33-user-experience'><span>3.3 User Experience</span></h3><h4 id='331-audience-defination'><span>3.3.1 Audience Defination</span></h4><p><span>The platform clearly distinguishes between two different user roles in terms of access levels and permissions. At the heart of the system are administrators, who have greater control over the removal of user comments and book review content with the aim of maintaining the integrity and functionality of the platform, and regular users, who have equal access to all interactive features. The architecture ensures a smooth experience for every user, regardless of their role, thus promoting community formation and active participation.</span></p><h4 id='332-senarios------typical-users'><span>3.3.2 Senarios——Typical Users</span></h4><p><strong><span>1.Users</span></strong></p><p><span>Basic users of the system enjoy the same privileges. They can have different needs, ranging from readers eager to share their recent reading experiences to community seekers looking for like-minded people to discuss common literary interests. They can talk to the AI helper on demand, monitor background feedback on their book reviews, and create interest groups to communicate directly with people who are also interested in the topic. Here, each user is an important thread in the reading community, contributing to a rich dialog and shared knowledge base. Since everyone has the same permissions, everyone has the opportunity to be seen, and everyone&#39;s emotions can be discovered by others.</span></p><p><strong><span>2. Administrators</span></strong></p><p><span>Administrators are responsible for maintaining the overall health of the platform, managing community interactions and filtering content. They have the option of removing inappropriate comments and preventing bad vibes from spreading among users. They are the guardians and promoters of the system. They also have to make sure that the features in the system are kept up to date, while listening to users&#39; suggestions for changes. To ensure the smooth running of the platform, they are also responsible for managing and maintaining the database and categorizing the reviews so that they can be easily found. Administrators have higher privileges than regular users to facilitate the system.</span></p><h2 id='4-risk-management'><span>4. Risk Management</span></h2><h3 id='41-integrity'><span>4.1 Integrity</span></h3><p><strong><span>Risk:</span></strong><span> Integrity risk refers to incorrect or altered information being displayed or shared on the platform.[3]</span></p><p><span>Mitigation: In my system, I will use encryption, when the user submits a book review and the system saves the data is to use strong encryption algorithms to prevent the data from being intercepted in transit. There will also be an authentication mechanism when the user logs in to prevent bad users from injecting all kinds of attacks.[4]</span></p><p>&nbsp;</p><h3 id='42-accessibility'><span>4.2 Accessibility</span></h3><p><strong><span>Risk:</span></strong><span> Non-compliance with accessibility standards may exclude users and expose the project to legal risks. </span></p><p><strong><span>Mitigation:</span></strong><span> Avoid using any unauthorized resources to avoid copyright disputes that could affect the subsequent development of the system. Study the scope of use carefully before using the terms of use, and get authorization and record.</span></p><p>&nbsp;</p><h3 id='43-security'><span>4.3 Security</span></h3><p><strong><span>Risk:</span></strong><span> Security vulnerabilities might lead to unauthorized data breaches or system compromise. </span></p><p><strong><span>Mitigation:</span></strong><span> In the face of possible cyber-attacks, I will test using a variety of means to scan for vulnerabilities. The means include: software testing, scanning using popular code auditing software on the market and following up to fix all high-risk issues; and external black-box testing to test whether commonly used attack methods can break software security restrictions;</span></p><p>&nbsp;</p><h3 id='44-illness'><span>4.4 Illness</span></h3><p><strong><span>Risk:</span></strong><span> Personal health issues could delay or halt the development process. </span></p><p><strong><span>Mitigation:</span></strong><span>  Maintain comprehensive documentation and follow code hygiene best practices to allow for easy transition to other developers as needed. Seek out more specialized code test writers to manage and maintain the project more meticulously.[5]</span></p><p>&nbsp;</p><h3 id='45-no-backups'><span>4.5 No Backups</span></h3><p><strong><span>Risk:</span></strong><span> Failure to back up system data regularly can result in the permanent loss of critical user and system information in the event of a hardware malfunction, data corruption, or other data loss incidents.</span></p><p><strong><span>Mitigation:</span></strong><span> IImplement a regular backup schedule that covers all critical data, including user information, book reviews, and maintenance logs. The backup process should be automated to minimize the risk of human error, and backups should be stored in a separate, secure location to prevent loss at the same time as the primary system. Also, using cloud services that provide automatic redundancy can provide another layer of data protection. Having a disaster recovery plan in place that outlines clear steps for restoring system functionality from backups after an incident ensures that downtime and service interruptions are minimized.[6]</span></p><p>&nbsp;</p><h2 id='5-tools-and-technologies'><span>5. Tools and Technologies</span></h2><h3 id='51-hardware'><span>5.1 Hardware</span></h3><p><span>Based on the available development hardware, I used the following devices：</span></p><ul><li><p><strong><span>Main Development Machine:</span></strong></p><ul><li><p><strong><span>Device Name:</span></strong><span> LAPTOP-KRQP13F8</span></p></li><li><p><strong><span>Processor:</span></strong><span> Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz with a turbo boost up to 2.30 GHz</span></p></li><li><p><strong><span>Memory:</span></strong><span> 16.0 GB RAM (15.8 GB usable), facilitating efficient compilation times and responsive testing environments.</span></p></li><li><p><strong><span>System Type:</span></strong><span> 64-bit OS, x64-based processor, ensuring compatibility with modern development frameworks and virtualization software.</span></p></li><li><p><strong><span>Touch Support:</span></strong><span> Equipped for 20 touch points, enabling touch-related feature development and testing.</span></p></li></ul></li><li><p><strong><span>Secondary Devices:</span></strong></p><ul><li><p><strong><span>Mobile Devices:</span></strong><span> Various iOS and Android devices with up-to-date operating systems to test mobile responsiveness and cross-platform features.</span></p></li><li><p><strong><span>External Hard Drives:</span></strong><span> For local backups and additional storage, with encryption capabilities to secure sensitive project data.</span></p></li></ul></li><li><p><strong><span>Networking Equipment:</span></strong></p><ul><li><p><strong><span>Routers and Switches:</span></strong><span> High-speed networking hardware for local connectivity and testing network-related features within the application.</span></p></li></ul></li></ul><h3 id='52-software'><span>5.2 Software</span></h3><figure class='table-figure'><table><thead><tr><th><span>Software Category</span></th><th><span>Software Name</span></th><th><span>Version</span></th><th><span>Purpose</span></th></tr></thead><tbody><tr><td><span>Operating System</span></td><td><span>Windows 10 Pro</span></td><td><span>Windows 10</span></td><td><span>Provides the primary operating environment for development</span></td></tr><tr><td><span>IDE for Java</span></td><td><span>IntelliJ IDEA</span></td><td><span>2021.3.2</span></td><td><span>Java development and project management</span></td></tr><tr><td><span>IDE for Web Dev</span></td><td><span>Visual Studio Code</span></td><td><span>1.55</span></td><td><span>Front-end development and design</span></td></tr><tr><td><span>Database - SQL</span></td><td><span>Navicat for MySQL </span></td><td><span>Premium 12</span></td><td><span>SQL database design, development, and testing</span></td></tr><tr><td><span>Version Control</span></td><td><span>Git</span></td><td><span>2.31.1</span></td><td><span>Source code management and tracking</span></td></tr><tr><td><span>Collaboration</span></td><td><span>GitHub</span></td><td><span>-</span></td><td><span>Remote repository hosting and collaboration</span></td></tr><tr><td><span>Containerization</span></td><td><span>Docker Desktop</span></td><td><span>20.10.5</span></td><td><span>Containerization and consistent deployment environments</span></td></tr><tr><td><span>API Testing</span></td><td><span>Postman</span></td><td><span>8.0.7</span></td><td><span>Creating, testing, and managing APIs</span></td></tr><tr><td><span>Documentation</span></td><td><span>Microsoft Office</span></td><td><span>Office 365</span></td><td><span>Documentation, spreadsheet, and presentation creation</span></td></tr><tr><td><span>Browser</span></td><td><span>Google Chrome</span></td><td><span>89.0.4389.114</span></td><td><span>Web browsing and web application testing</span></td></tr></tbody></table></figure><p>&nbsp;</p><h2 id='6-maintenance'><span>6. Maintenance</span></h2><p><span>During the development of our project last semester, I encountered several challenges and successes that shaped the evolution of our platform. One of the initial plans was to implement a sophisticated intelligent recommendation algorithm to suggest books and movies to users based on their preferences and past interactions. However, this feature faced a significant hurdle: our database was too small to effectively train the algorithm, making it impractical to achieve reliable or meaningful recommendations at that stage.</span></p><p><span>To overcome this limitation, I decided to postpone the implementation of the recommendation system until the database could be sufficiently expanded with a larger volume of reviews and user interactions. This expansion is expected as the user base grows and more content is generated on the platform.</span></p><p><span>In place of the recommendation system, I pivoted to integrating an AI chat feature. This new functionality has proven to be a valuable addition, creating fresh content and facilitating user interactions by answering a wide range of questions related to books, movies, and more. This AI-driven approach not only enhances user engagement but also compensates for the initial lack of personalized book recommendations.</span></p><p><span>Additionally, I developed a tag recommendation feature, which allows users to select and explore topics of interest based on tags. This feature helps in categorizing content more effectively and enhances the discoverability of reviews that match specific interests. Meanwhile, users can search for keywords they are interested in in the book review interface, which can be matched based on the TITLE name, enhancing the intelligence of the system.</span></p><p><span>Another significant development is the enhancement of the dashboard. This feature now provides users with a visual representation of how their reviews are being received by the community. It shows detailed analytics on the distribution of likes, comments, and favorites, offering insights into the impact and reach of their contributions. This visibility into user engagement helps in fostering a more connected and responsive community.</span></p><p><span>These adjustments and developments highlight the fact that I am constantly improving and adapting to the needs of the program and its technical feasibility. Some of the planned features that were difficult to implement have been iterated away in development and successfully turned into more usable and intuitive content. At the same time, I will continue to optimize the new features in the subsequent development process and hope to develop and implement the unachievable features at a later stage.</span></p><p>&nbsp;</p><h2 id='7--project-analysis-and-specification'><span>7.  Project Analysis and Specification</span></h2><h3 id='71-project-size'><span>7.1 Project Size</span></h3><p><span>The project, a comprehensive book and movie review platform, is currently an individual project developed and maintained solely by myself. At this stage, the platform is operational on my personal computer, serving as the primary development and testing environment. This setup allows for direct control over the development process and swift implementation of changes based on testing results.</span></p><p><span>Upon completion, the platform is designed to be deployed online, enabling access for users globally. Once launched, users will be able to create accounts, log in, and engage with the various features, such as writing reviews, participating in discussions, and interacting with the AI helper. This shift from a local to a global user base will significantly increase the project&#39;s scale and user interaction dynamics.</span></p><p><span>The following will be considered and evaluated in the future when considered for go-live.</span></p><ul><li><p><strong><span>Scalability</span></strong><span>: Ensuring the infrastructure can handle an increasing number of users and data without performance degradation.</span></p></li><li><p><strong><span>Security</span></strong><span>: Implementing robust security measures to protect user data and prevent unauthorized access, especially important as users will be able to create and manage accounts.</span></p></li><li><p><strong><span>Data Management</span></strong><span>: Expanding the database to accommodate a larger volume of reviews and user interactions, which is crucial for functionalities like the AI recommendation system.</span></p></li><li><p><strong><span>User Support</span></strong><span>: Establishing support mechanisms to assist users with technical issues or inquiries, ensuring a smooth user experience.</span></p></li></ul><p><span>As an independent developer, I am challenged to manage all aspects of a project, from front-end design and back-end infrastructure to database management and user support. However, this also provides flexibility and autonomy in decision-making and creative expression, allowing for a personalized approach to solving technical challenges and innovating the user experience that provides my ingenuity about the project.</span></p><h3 id='72--feasibility-study'><span>7.2  Feasibility Study</span></h3><h4 id='721-technological-t'><span>7.2.1 Technological (T)</span></h4><p><span>Certainly! Here’s the revised content reflecting that your project is developed using React and Node.js:</span></p><ul><li><p><strong><span>Front-end:</span></strong><span> React enhances the user experience by building user-friendly interfaces with integrated user interface libraries. Including React in my learning path has allowed me to quickly adapt and implement more complex features efficiently.</span></p></li><li><p><strong><span>Back-end:</span></strong><span> The backend is built using Node.js, which provides a lightweight, efficient platform for building scalable network applications. Node.js is particularly well-suited for handling asynchronous operations and has a vast ecosystem of libraries that can enhance development speed and capabilities.</span></p></li><li><p><strong><span>Database:</span></strong><span> MySQL serves as the primary relational database management system, ensuring reliable structured data storage and integrity for the system&#39;s needs.</span></p></li><li><p><strong><span>Caching:</span></strong><span> Redis fulfills caching requirements and improves system performance by storing frequently accessed data in memory for fast retrieval.</span></p><p>&nbsp;</p></li></ul><h4 id='722-economic-e'><span>7.2.2 Economic (E)</span></h4><ul><li><p><strong><span>Hosting Costs:</span></strong><span> Cloud hosting is estimated at around $100 per month for moderate usage scenarios.</span></p></li><li><p><strong><span>Database Server:</span></strong><span> Costs for MySQL management services range from $50 to over $200 per month based on configurations. </span></p></li><li><p><strong><span>Software:</span></strong><span> Both React and Java-based frameworks such as Spring Boot are open-source and incur no licensing fees.</span></p></li><li><p><strong><span>Storage:</span></strong><span> Prices for cloud storage services such as Amazon S3 or Google Cloud Storage are approximately $0.023 per GB for the first 50TB per month.</span></p></li><li><p><strong><span>AI Interface Costs:</span></strong><span> The AI interface from </span><a href='https://pro.aiskt.com/'><span>aiskt.com</span></a><span> can vary in cost depending on the volume of queries and level of computational resources required. For a standard usage scenario involving moderate query volume, the costs could range from $100 to $500 per month. This platform provides advanced AI capabilities which can significantly enhance user interaction and content personalization on the platform.</span></p></li><li><p><strong><span>Others:</span></strong><span> Domain registration and SSL certificate costs will apply, typically around $30 per year for domain and potentially free to premium costs for SSL depending on the chosen provider.</span></p></li></ul><h4 id='723-legal-l'><span>7.2.3 Legal (L)</span></h4><ul><li><p><strong><span>Data Privacy &amp; Protection:</span></strong><span> Compliance with data protection laws like GDPR or CCPA will be essential, involving encryption of sensitive user data stored in the database.</span></p></li><li><p><strong><span>Licensing:</span></strong><span> While using React and associated frameworks, compliance with their respective open-source licenses is mandatory. Care will be taken to avoid using proprietary components without proper licensing.</span></p></li><li><p><strong><span>Transactions &amp; Payments:</span></strong><span> The platform must consider legal aspects related to invoicing, tax compliance, record-keeping, and handling payment disputes.</span></p></li><li><p><strong><span>Intellectual Property:</span></strong><span> Measures to protect the custom-developed code, trademarks, and copyrights for the platform must be established.</span></p></li></ul><h4 id='724-operational-o'><span>7.2.4 Operational (O)</span></h4><ul><li><p><strong><span>Scalability:</span></strong><span> The system is designed to be scalable, thanks to the flexibility offered by cloud services and the robustness of the React and Node.js ecosystem.</span></p></li><li><p><strong><span>Maintenance:</span></strong><span> Regular maintenance is vital for addressing software patches, security updates, and functional upgrades.</span></p></li><li><p><strong><span>Backup &amp; Disaster Recovery:</span></strong><span> Robust backup strategies and disaster recovery plans will be essential for the database servers storing critical data.</span></p></li><li><p><strong><span>Training:</span></strong><span> Training materials and documentation will be provided to help users and administrators make the most of the system&#39;s features.</span></p></li><li><p><strong><span>Security:</span></strong><span> Ongoing security audits and adherence to best practices in software development will ensure the system&#39;s integrity.</span></p></li></ul><h4 id='725-schedule-s'><span>7.2.5 Schedule (S)</span></h4><ul><li><p><strong><span>Project Initialization &amp; Setup (January 10 - January 17):</span></strong><span> Set up the initial development environment, establish project guidelines, and select necessary development tools.</span></p></li><li><p><strong><span>System Design &amp; Database Schema (January 18 - January 31):</span></strong><span> Lay out high-level system architecture planning and database schema design.</span></p></li><li><p><strong><span>Back-end Development - Java (February 1 - February 28):</span></strong><span> Develop the application&#39;s core back-end functionality, including integration with MySQL and the implementation of service logic with Java.</span></p></li><li><p><strong><span>Front-end Development - React (March 1 - March 20):</span></strong><span> Construct front-end components and connect them with the Java back-end services.</span></p></li><li><p><strong><span>Testing &amp; Debugging (March 21 - April 10):</span></strong><span> Carry out strict testing phases, use black-bow and white-box tests to intimately the system and put it into use.</span></p></li><li><p><strong><span>Documentation &amp; Training Materials (April 11 - April 20):</span></strong><span> Develop comprehensive user manuals, API documentation, and training materials for end-users and system administrators.</span></p></li><li><p><strong><span>Final Review &amp; Deployment (April 21 - April 30):</span></strong><span> Final system review, gathering user feedback, making necessary adjustments, and preparing for deployment to production.</span></p></li></ul><p>&nbsp;</p><h2 id='8-specification-of-data-structures'><span>8. Specification of Data Structures </span></h2><h3 id='81-uml-for-system'><span>8.1 UML for system</span></h3><h4 id='811-use-case-diagram'><span>8.1.1 Use Case Diagram</span></h4><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422194716696.png" referrerpolicy="no-referrer" alt="image-20240422194716696"></p><h4 id='812-class-diagram'><span>8.1.2 Class Diagram</span></h4><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231126232251924.png" referrerpolicy="no-referrer" alt="image-20231126232251924"></p><h4 id='813-sequence-diagram'><span>8.1.3 Sequence Diagram</span></h4><ol><li><p><span>Login Page</span></p></li></ol><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231230184847990.png" referrerpolicy="no-referrer" alt="image-20231230184847990"></p><ol start='2' ><li><p><span>Book Review Page</span></p></li></ol><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231230185125104.png" referrerpolicy="no-referrer" alt="image-20231230185125104"></p><ol start='3' ><li><p><span>AI Page</span></p></li></ol><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422205204297.png" referrerpolicy="no-referrer" alt="image-20240422205204297"></p><ol start='4' ><li><p><span>Chat Page</span></p></li></ol><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231230185218861.png" referrerpolicy="no-referrer" alt="image-20231230185218861"></p><ol start='5' ><li><p><span>Profile Page</span></p></li></ol><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231230185238908.png" referrerpolicy="no-referrer" alt="image-20231230185238908"></p><h3 id='82-database'><span>8.2 Database</span></h3><h4 id='821-er-diagram'><span>8.2.1 ER Diagram</span></h4><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422213123627.png" referrerpolicy="no-referrer" alt="image-20240422213123627"></p><h2 id='9-methodology'><span>9. Methodology</span></h2><h3 id='91-the-problem-from-a-process-viewpoint'><span>9.1 The Problem from a Process Viewpoint</span></h3><p><span>From a process perspective, the development of my book sharing platform faced a number of challenges. The requirements for the platform were not completely clear from the start and had to be refined through iterative customer feedback and user testing. This is because users&#39; reading and sharing behaviors can provide new insights that influence feature development and prioritization.</span></p><p><span>There are also a large number of features to consider, such as user profiles, book catalogs, AI connections, and commenting systems all of these features need to be developed separately and assembled and configured with each other so as to adapt to my system, and therefore there may be a risk that all of them will not be able to be used, and will require uninterrupted testing in order to continue to improve them.</span></p><h3 id='92-assessment-of-chosen-methodologies'><span>9.2 Assessment of Chosen Methodologies</span></h3><p><span>Initially, I conducted extensive research and study of various development methods to determine the best fit for this project.</span></p><ul><li><p><strong><span>Waterfall Methodology:</span></strong><span> The first thing I considered was the most basic waterfall model. It was clearly structured and had a clear time for phase completion before moving on to the next phase, however, I soon realized that the stereotypical  model was not suited to projects where user feedback was critical and requirements were constantly changing. If one part of the process goes wrong, I will have to start the process all over again.[7]</span></p></li><li><p><strong><span>V-Model:</span></strong><span> Next I looked at the V model[8], which emphasizes verification and validation, which at first glance seems beneficial. However, the model is as inflexible as the waterfall model, is equally ineffective in handling changing requirements, and does not support iterative releases.</span></p></li><li><p><strong><span>Spiral Model:</span></strong><span> The spiral model[9] is characterized by a focus on risk assessment, and while this model can support continuous iteration and evaluation of the system, its complexity and the need for significant risk assessment expertise can make it difficult for me to get started with a variety of inconveniences.</span></p></li><li><p><strong><span>Incremental and Iterative Development:</span></strong><span>[10] This approach is closely aligned with project requirements, as it allows for phased feature development and iteration. However, without having a strong framework to manage and prioritize work at the outset, this approach still lacks the structural flexibility required. It was too difficult for me to use for the first time.</span></p></li><li><p><strong><span>Agile-Scrum Match:</span></strong><span> I have found that Scrum[11] in an Agile framework is well suited to these needs. Its iterative nature allows for frequent reevaluation of project priorities to ensure that the product is developed to deliver real user value, and Scrum&#39;s emphasis on continuous improvement allows for flexible scheduling of tasks, which is beneficial when dealing with creative and dynamic scope adjustments in project like mine.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20231105200116499.png" referrerpolicy="no-referrer" alt="image-20231105200116499"></p></li></ul><p><span>Through my research into various models, Scrum stood out. Its strength in creating a collaborative environment capable of responding quickly to change, and its ability to be continually adapted and evaluated in response to needs, led me to choose it as the method of analysis.</span></p><h3 id='93-process-outline'><span>9.3 Process Outline</span></h3><p><span>Since Scrum development requires constant interaction and discussion with the group during the execution of the project, and I had only one person as a team and a mentor to guide me, I adapted the Agile-Scrum methodology to a one-person workflow. In the absence of a team, I had to self-organize and self-regulate according to the Scrum framework. Here is how the Scrum methodology is applied after my adaptation:</span></p><ul><li><p><strong><span>Sprint Planning:</span></strong><span> At the beginning of each Scrum (which lasts two weeks), I will create a list of tasks from the Product Backlog with the goal of completing them during the Sprint. This plan will serve as my commitment to the target tasks for the Sprint Backlog.</span></p></li><li><p><strong><span>Daily Scrum:</span></strong><span> I will conduct a daily personal review, a time-limited activity strictly limited to 15 minutes, to assess progress and plan for the next 24 hours. During the brainstorming process, I will need to record my ideas and execute them rigorously to make it easier for my mentor to assess the weekly work. This replaced the need for daily team meetings and helped keep the project on track.</span></p></li><li><p><strong><span>Sprint Review:</span></strong><span> At the end of each sprint, I will conduct a review to present the completed work to my mentor and may use live presentations such as PowerPoint to efficiently explain my work to others if necessary. I will also explain the specifics of the next stage.</span></p></li><li><p><strong><span>Reflective Improvement:</span></strong><span> At the end of the review, I will conduct a retrospective to analyze what worked and what could be improved in the next sprint. I will change my current operations in response to the suggestions made by my mentor and others, and the lessons learned will be documented so that I can avoid recurrence of similar problems during subsequent research and development.</span></p></li><li><p><strong><span>Backlog Refinement:</span></strong><span> During the sprint, I will continually update the product backlog, add new tasks or make adjustments based on lessons learned from the previous sprint to ensure that priorities are aligned with the project&#39;s evolving needs and goals.</span></p></li><li><p><strong><span>Incremental Releases:</span></strong><span> My goal is to release a usable project increment at the end of each sprint to ensure stable development of the platform and to effectively incorporate feedback to guide further development phases.</span></p></li><li><p><strong><span>Documentation:</span></strong><span> Documentation will be an ongoing process throughout the sprint to ensure that all aspects regarding the project&#39;s progress, adjustments, and planning are documented for future reference when modifying features and to help mentors and others evaluate my work.</span></p></li></ul><h3 id='94-sprint-breakdown-and-timeline'><span>9.4 Sprint Breakdown and Timeline</span></h3><p><span>The project will be divided into a series of sprints, each focusing on a specific set of deliverables. Below is an outline of each sprint:</span></p><p><strong><span>Sprint 1: Project Setup (Duration: 2 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> January 10 - January 24</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Set up the development environment, initialize the project repository, and define initial requirements.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Set up IDE and necessary development tools.</span></p></li><li><p><span>Create the project&#39;s source repository with version control.</span></p></li><li><p><span>Draft the initial project scope and software requirements document with mentor input.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Development environment ready, project repository initialized, initial documentation draft.</span></p></li></ul><p><strong><span>Sprint 2: Design Phase (Duration: 2 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> January 25 - February 7</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Finalize the software architecture, choose technology stack components, and create the database schema.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Design the system architecture and database schema.</span></p></li><li><p><span>Select the technology stack in consultation with the mentor.</span></p></li><li><p><span>Document architectural decisions and prepare initial design documents.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> System architecture diagram, technology stack documentation, database schema.</span></p></li></ul><p><strong><span>Sprint 3: Prototype Development (Duration: 3 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> February 8 - February 28</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Develop a basic working prototype of the system with minimal features.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Implement core functionality.</span></p></li><li><p><span>Develop a simple user interface for initial testing.</span></p></li><li><p><span>Begin writing unit tests for developed features.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Working prototype, basic UI, initial unit tests.</span></p></li></ul><p><strong><span>Sprint 4: Feature Development and Testing (Duration: 4 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> March 1 - March 28</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Build on the prototype to develop additional features and enhance the system&#39;s functionality.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Develop additional features identified during the design phase.</span></p></li><li><p><span>Expand the database to include new entities and relationships.</span></p></li><li><p><span>Perform continuous testing and iteration on feedback from mentor reviews.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Additional features implemented, expanded database, ongoing testing reports.</span></p></li></ul><p><strong><span>Sprint 5: Refinement and Secondary Features (Duration: 3 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> March 29 - April 18</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Refine existing features and add secondary features. Focus on UI/UX improvements and system optimization.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Optimize system performance.</span></p></li><li><p><span>Improve user interface based on prototype feedback.</span></p></li><li><p><span>Integrate secondary features to enhance usability.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Refined primary features, implemented secondary features, improved UI/UX design.</span></p></li></ul><p><strong><span>Sprint 6: Final Testing, Documentation, and Deployment (Duration: 2 weeks)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> April 19 - May 3</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Conduct final tests, complete documentation, and prepare the system for deployment.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Finalize all testing, including user acceptance testing with mentor oversight.</span></p></li><li><p><span>Complete all project documentation with mentor review.</span></p></li><li><p><span>Set up the production environment and deploy the system.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Fully tested system, complete documentation set, deployed application.</span></p></li></ul><p><strong><span>Sprint 7: Project Closure and Review (Duration: 1 week)</span></strong></p><ul><li><p><strong><span>Dates:</span></strong><span> May 4 - May 10</span></p></li><li><p><strong><span>Objectives:</span></strong><span> Officially close the project with a final review session with the mentor. Reflect on the project and identify lessons learned.</span></p></li><li><p><strong><span>Tasks:</span></strong></p><ul><li><p><span>Conduct a final project review with the mentor.</span></p></li><li><p><span>Document lessons learned and final project reflections.</span></p></li><li><p><span>Archive project materials and prepare a closing report.</span></p></li></ul></li><li><p><strong><span>Deliverables:</span></strong><span> Lessons learned document, final project report, project archive.</span></p></li></ul><p><span>Each sprint began with a planning meeting and ended with a review and recap that informed the goals for the next sprint. Throughout the project, my mentor&#39;s guidance will ensure that I am on the right track to keep the R&amp;D process under control, within reasonable and efficient limits, and that my R&amp;D process is constantly evaluated.</span></p><p>&nbsp;</p><h2 id='10-user-interface-and-testing'><span>10. User Interface and Testing</span></h2><p><span>In the previous features section, the appropriate functions and content have been intercepted. Next I will show the interface one by one by function with the version on the computer.</span></p><h3 id='101-login-and-register'><span>10.1 Login and Register</span></h3><p><span>I am using user1 to describe the detailed interface of the system. </span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422214615703.png" referrerpolicy="no-referrer" alt="image-20240422214615703"></p><h3 id='102-reviews-page'><span>10.2 Reviews Page</span></h3><p><span>You can see the thumbnails of the reviews by clicking on the reviews button below.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422214719995.png" referrerpolicy="no-referrer" alt="image-20240422214719995"></p><p><span>The tags above are used to distinguish between specific types of content. It can be changed with the search page.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215057154.png" referrerpolicy="no-referrer" alt="image-20240422215057154"></p><p><span>In the lower right corner of the interface is the button to create Reviews, click on it to create Reviews.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422214909633.png" referrerpolicy="no-referrer" alt="image-20240422214909633"></p><p><span>Going to the detailed page, you can see the details of each reviews. If you have uploaded several pictures, it can switch by time to show.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215252124.png" referrerpolicy="no-referrer" alt="image-20240422215252124"></p><p><span>You can also collect or like the specific review, and also adding comments below.</span></p><h3 id='103-ai-helper'><span>10.3 AI Helper</span></h3><p><span>You can chat in this page with AI model. It can answer you various kind of questions.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215513803.png" referrerpolicy="no-referrer" alt="image-20240422215513803"></p><h3 id='104-chat-page'><span>10.4 Chat Page</span></h3><p><span>The button on the left is public chat, which allows you to freely communicate with all users in real time.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215547567.png" referrerpolicy="no-referrer" alt="image-20240422215547567"></p><p><span>The button on the right is Group Chat, which allows you to select groups of interest in the interface.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215637316.png" referrerpolicy="no-referrer" alt="image-20240422215637316"></p><p><span>Click the Add home button to jump to the room creation screen.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215731716.png" referrerpolicy="no-referrer" alt="image-20240422215731716"></p><h3 id='105-personal-page'><span>10.5 Personal page</span></h3><p><span>Here you can upload an avatar, log out and view favorites and likes.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215851021.png" referrerpolicy="no-referrer" alt="image-20240422215851021"></p><p><span>This is what the user1 collected.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422215934303.png" referrerpolicy="no-referrer" alt="image-20240422215934303"></p><h3 id='106-dashboard'><span>10.6 Dashboard</span></h3><p><span>Here are the author&#39;s creative content statistics, with various types of charts below to show specific content.</span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422220027519.png" referrerpolicy="no-referrer" alt="image-20240422220027519"></p><h3 id='107-administrator-specialty'><span>10.7 Administrator Specialty</span></h3><p><span>If you log into admin account, you can manage the reviews by deleting them. You can also delete the comments of users if they have made sensitive comments.</span></p><p><span>By changing the type of role in the database, users can be administrator too. </span></p><p><img src="C:\Users\Yolanda Y\Desktop\md文件\Typora图片路径\image-20240422220253072.png" referrerpolicy="no-referrer" alt="image-20240422220253072"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='11-management-of-the-process'><span>11. Management of the Process</span></h2><p><span>Here is the history of the development and implementation over the semester.</span></p><figure class='table-figure'><table><thead><tr><th><span>Sprint</span></th><th><span>Duration</span></th><th><span>Dates</span></th><th><span>Objectives</span></th><th><span>Tasks</span></th><th><span>Deliverables</span></th></tr></thead><tbody><tr><td><span>1: Project Setup</span></td><td><span>2 weeks</span></td><td><span>Jan 10 - Jan 24</span></td><td><span>Set up the development environment, initialize the project repository, and define initial requirements.</span></td><td><span>- Set up IDE and necessary development tools.</span><br><span>- Create the project&#39;s source repository with version control.</span><br><span>- Draft the initial project scope and software requirements document with mentor input.</span></td><td><span>Development environment ready, project repository initialized, initial planning draft.</span></td></tr><tr><td><span>2: Design Phase</span></td><td><span>2 weeks</span></td><td><span>Jan 25 - Feb 7</span></td><td><span>Finalize the software architecture, choose technology stack components, and create the database schema.</span></td><td><span>- Design the system architecture and database schema.</span><br><span>- Show the instructor the list of databases and the basic interface.</span><br><span>- Document architectural decisions and prepare initial design documents.</span></td><td><span>System architecture diagram, basic pages architectures without details, database schema.</span></td></tr><tr><td><span>3: Prototype Development</span></td><td><span>3 weeks</span></td><td><span>Feb 8 - Feb 28</span></td><td><span>Develop a basic working prototype of the system with minimal features.</span></td><td><span>- Implement core functionality.</span><br><span>- Develop a simple user interface for initial testing.</span><br><span>- Begin writing unit tests for developed features.</span></td><td><span>Working prototype, basic UI, initial unit tests.</span></td></tr><tr><td><span>4: Feature Development and Testing</span></td><td><span>4 weeks</span></td><td><span>Mar 1 - Mar 28</span></td><td><span>Build on the prototype to develop additional features and enhance the system&#39;s functionality.</span></td><td><span>- Develop additional features identified during the design phase.</span><br><span>- Expand the database to include new entities and relationships.</span><br><span>- Perform continuous testing and iteration on feedback from mentor reviews.</span></td><td><span>Additional features implemented, expanded database, ongoing testing reports.</span></td></tr><tr><td><span>5: Refinement and Secondary Features</span></td><td><span>3 weeks</span></td><td><span>Mar 29 - Apr 18</span></td><td><span>Refine existing features and add secondary features. Focus on UI/UX improvements and system optimization.</span></td><td><span>- Optimize system performance.</span><br><span>- Improve user interface based on prototype feedback.</span><br></td><td><span>Refined primary features, implemented secondary features, improved UI/UX design, changed page details.</span></td></tr><tr><td><span>6: Final Testing, Documentation, and Deployment</span></td><td><span>1 week</span></td><td><span>Apr 19 - Apr 22</span></td><td><span>Conduct final tests, complete documentation, and prepare the system for deployment.</span></td><td><span>- Finalize all testing, including user acceptance testing with mentor oversight.</span><br><span>- Complete all project documentation with mentor review.</span><br><span>-- Adding AI interface and dashboard.</span></td><td><span>Fully tested system, complete documentation set, deployed application.</span></td></tr><tr><td><span>7: Project Closure and Review</span></td><td><span>1 week</span></td><td><span>Apr 22 - Apr 24</span></td><td><span>Officially close the project with a final review session with my mentor. Reflect on the project and identify lessons learned.</span></td><td><span>- Conduct a final project review with my mentor.</span><br><span>- Document lessons learned and final project reflections.</span><br><span>- Archive project materials and prepare a closing report.</span></td><td><span>Lessons learned document, final project report, project archive.</span></td></tr></tbody></table></figure><h2 id='12-project-evaluation'><span>12. Project Evaluation</span></h2><h3 id='121-project-evaluation'><span>12.1 Project Evaluation</span></h3><p><span>In evaluating the project, I have identified certain recurring problems as well as immediate and long-term outcomes that serve as indicators of the platform’s progress and impact.</span></p><p><strong><span>Recurring Problems:</span></strong></p><ul><li><p><strong><span>User Engagement:</span></strong><span> Keeping users consistently engaged with the platform has been challenging. Recurring updates and feature enhancements are necessary to maintain user interest over time.</span></p></li><li><p><strong><span>Scalability:</span></strong><span> As the user base grows, scaling the platform to handle increased traffic without compromising performance is an ongoing issue.</span></p></li><li><p><strong><span>Content Quality:</span></strong><span> Ensuring high-quality, meaningful reviews and discussions is a constant focus, requiring moderation and community guidelines.</span></p></li></ul><h3 id='122-immediate-outcomes'><span>12.2 Immediate Outcomes</span></h3><ul><li><p><strong><span>User Feedback:</span></strong><span> In the short term, the platform can receive positive feedback from users who have successfully adopted it as their go-to for book and movie reviews. The intuitive interface and features like the AI helper will be particularly stood out in user reviews.</span></p></li><li><p><strong><span>Utilization:</span></strong><span> The website will be actively used, indicating initial success in meeting the needs of the target audience. Users are creating accounts, contributing reviews, and engaging with others, showing a good uptake of the platform’s offerings.</span></p></li></ul><h3 id='123-long-term-outcomes'><span>12.3 Long-Term Outcomes</span></h3><ul><li><p><strong><span>Stable Community:</span></strong><span> Over the long term, I aim to cultivate a stable and dedicated community of readers and film enthusiasts. By fostering an environment where users can share and discuss, we hope to become a staple in the reading community.</span></p></li><li><p><strong><span>Reading Enthusiast’s Haven:</span></strong><span> The ultimate goal is for the platform to evolve into a haven for reading enthusiasts. This involves not only being a place for reviews but also a space where users can discover new books, participate in reading challenges, and engage in literature-related events.</span></p></li><li><p><strong><span>Community-Led Growth:</span></strong><span> With a solid base, I anticipate the platform will benefit from community-led growth, where users recommend the platform to others, contribute to its content, and help moderate discussions, ensuring a self-sustaining model.</span></p></li></ul><p><span>The combination of immediate user engagement and long-term community development is critical to the Platform&#39;s success. Regular evaluation and iteration based on user feedback and technological advances will help guide the project towards these outcomes.</span></p><h2 id='13-testing'><span>13. Testing</span></h2><p><span>For testing my project, I have created the video on YouTube. You can see the reflections that is happening automatically.</span></p><p><span>The link is:  </span><a href='https://youtu.be/Q4dj70xiVz4' target='_blank' class='url'>https://youtu.be/Q4dj70xiVz4</a></p><p>&nbsp;</p><h2 id='14-conclusion'><span>14. Conclusion</span></h2><p><span>My project outlines the process of building, developing and deploying a specialized platform for book and movie lovers. The project aimed to fill a gap in the market and create a cohesive community where avid readers and movie fans could come together to share their passions. From the initial planning stages, through the challenges of the development process, to the final implementation, the project has been guided by a singular vision: to create a user-centered platform that not only allows for the sharing of reviews, but also fosters a strong community.</span></p><p><span>Throughout the development process, there were several features that had a particular impact on the user experience. The integration of artificial intelligence assistants provided instant, intelligent interaction with users, while features such as a dynamic chat interface and customizable personal home pages greatly increased user engagement. I tweaked the interface using tag categorization, while utilizing a dashboard to showcase the feedback received from personal book reviews.</span></p><p><span>After encountering inconsistencies between ideas and reality during project development, I promptly adjusted my strategy to address several misconceptions, added new features to fill previous gaps, and implemented strategies to mitigate these issues. I hope that in the long run, the platform is positioned to foster a stable community and become a haven for those who find joy in reading and movies.</span></p><p><span>Going forward, the success of the project will be determined by how well it adapts to the needs of its users, how well its user base grows, and the quality of the discussions it generates. My goal is to ensure that the platform not only sustains the existing community, but also attracts new users and adapts to the ever-changing online interactive landscape. I will continue to improve the platform in the future, taking it to a wider arena where millions of avid readers will find a home.</span></p><h2 id='15-references'><span>15. References</span></h2><ol start='' ><li><p><span>OpenAI. API reference introduction. Retrieved from </span><a href='https://platform.openai.com/docs/api-reference/introduction' target='_blank' class='url'>https://platform.openai.com/docs/api-reference/introduction</a></p></li><li><p><span>AISKT Pro. Retrieved from </span><a href='https://pro.aiskt.com/' target='_blank' class='url'>https://pro.aiskt.com/</a></p></li><li><p><span>Zhang, Q., &amp; Others. (2019). Time and Attribute Based Dual Access Control and Data Integrity Verifiable Scheme in Cloud Computing Applications. IEEE Access.</span></p></li><li><p><span>Krishnasamy, V., &amp; Venkatachalam, S. (2021). An Efficient Data Flow Material Model Based Cloud Authentication Data Security and Reduce A Cloud Storage Cost Using Index-level Boundary Pattern Convergent Encryption Algorithm. Materials Today: Proceedings.</span></p></li><li><p><span>McConnell, S. (1996). Rapid Development: Taming Wild Software Schedules. Microsoft Press.</span></p></li><li><p><span>Abualkishik, A. Z., Alwan, A. A., &amp; Gulzar, Y. (2020). Disaster Recovery in Cloud Computing Systems: An Overview. International Journal of Advanced Computer Science and Applications.</span></p></li><li><p><span>Herawati, S., et al. (2021). Application of The Waterfall Method on A Web-Based Job Training Management Information System at Trunojoyo University Madura. E3S Web of Conferences.</span></p></li><li><p><span>Hu, X., et al. (2021). Model Complexity of Deep Learning: A Survey. arXiv preprint arXiv:2106.00088.</span></p></li><li><p><span>Long, Y., &amp; Liu, P. (2021). Study on Coordination of Industrial Technology Ambidextrous Innovation in Knowledge Ecology Spiral. Kybernetes.</span></p></li><li><p><span>Tan, T., et al. (2009). Productivity Trends in Incremental and Iterative Software Development. 2009 3rd International Symposium on Empirical Software Engineering and Measurement.</span></p></li><li><p><span>[Video]. Retrieved from </span><a href='https://www.youtube.com/watch?v=9TycLR0TqFA' target='_blank' class='url'>https://www.youtube.com/watch?v=9TycLR0TqFA</a></p></li></ol><p>&nbsp;</p><h2 id='16-appendices'><span>16. Appendices</span></h2><h3 id='161-resources'><span>16.1 Resources</span></h3><p><span>Github Repository: </span><a href='https://github.com/Yolanda2002/FYP_LitConnect' target='_blank' class='url'>https://github.com/Yolanda2002/FYP_LitConnect</a></p><p><span>Youtube Video showing the details: </span><a href='https://youtu.be/Q4dj70xiVz4' target='_blank' class='url'>https://youtu.be/Q4dj70xiVz4</a></p><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
